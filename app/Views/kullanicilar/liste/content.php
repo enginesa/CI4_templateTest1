@@ -25,7 +25,10 @@
                         <label class="custom-control-label" for="customSwitch<?= $kullanici_id ?>"></label>
                     </div>
                 </td>
-                <td><a href="<?=base_url("kullanicilar/kullanici-duzenle/$kullanici_id")?>">Düzenle</a></td>
+                <td>
+                    <a href="<?=base_url("kullanicilar/kullanici-duzenle/$kullanici_id")?>">Düzenle</a> |
+                    <a href="#" class="kullaniciSil" data-id="<?=$kullanici_id?>">Sil</a>
+                </td>
             </tr>
             <?php
         }

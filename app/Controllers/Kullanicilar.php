@@ -30,7 +30,7 @@ class Kullanicilar extends BaseController
         $validated = $this->validate(['kullaniciFoto' => ['uploaded[kullaniciFoto]', 'mime_in[kullaniciFoto,image/jpg,image/jpeg,image/gif,image/png,image]', 'max_size[kullaniciFoto,4096]']]);
 
         if ($validated) {
-            
+
             $foto = $this->request->getFile('kullaniciFoto');
 
             $fotoName = $foto->getRandomName();
@@ -75,9 +75,13 @@ class Kullanicilar extends BaseController
         $kullaniciAdi = $this->request->getPost("kullaniciAdi");
         echo $this->kullanicilarModel->updateRow(array("kullanici_id" => $kullaniciId), array("kullanici_adi" => $kullaniciAdi));
         return redirect()->to(base_url());
-
-
     }
 
+
+    public function kullaniciSil()
+    {
+        $kullaniciId = $this->request->getPost("kullaniciId");
+        echo $this->kullanicilarModel->deleteOne(array("kullanici_id" => $kullaniciId));
+    }
 
 }

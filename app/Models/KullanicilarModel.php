@@ -30,5 +30,11 @@ class Kullanicilar_model extends Model
         $this->db->table($this->tableName)->where($where)->update($data);
         return $this->db->affectedRows();
     }
+    public function deleteOne($where=array()){
+
+        $this->db->table($this->tableName)->delete($where);
+        return $this->db->affectedRows();
+
+    }
 
 }
